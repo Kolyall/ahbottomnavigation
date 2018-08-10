@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:id="@+id/bottom_navigation_small_container"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/bottom_navigation_height"
-    android:background="@drawable/item_background"
-    android:minWidth="@dimen/bottom_navigation_min_width">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:id="@+id/bottom_navigation_small_container"
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/bottom_navigation_height"
+             android:background="@drawable/item_background"
+             android:minWidth="@dimen/bottom_navigation_min_width">
 
     <ImageView
         android:id="@+id/bottom_navigation_small_item_icon"
         android:layout_width="@dimen/bottom_navigation_icon"
         android:layout_height="@dimen/bottom_navigation_icon"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
         android:layout_marginBottom="@dimen/bottom_navigation_margin_bottom"
         android:layout_marginTop="@dimen/bottom_navigation_small_margin_top"
-        android:gravity="center" />
+        android:gravity="center"/>
 
     <TextView
         android:id="@+id/bottom_navigation_small_item_title"
@@ -28,7 +28,7 @@
         android:lines="1"
         android:textColor="@color/colorBottomNavigationInactive"
         android:textSize="14sp"
-        tools:text="Label One" />
+        tools:text="Label One"/>
 
     <TextView
         android:id="@+id/bottom_navigation_notification"
@@ -46,6 +46,6 @@
         android:paddingRight="@dimen/bottom_navigation_notification_padding"
         android:textColor="#FFFFFF"
         android:textSize="@dimen/bottom_navigation_notification_text_size"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
 
 </FrameLayout>

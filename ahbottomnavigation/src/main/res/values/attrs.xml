@@ -10,5 +10,12 @@
         <attr name="disableColor" format="color" />
         <attr name="coloredActive" format="color" />
         <attr name="coloredInactive" format="color" />
+        <attr name="titleActiveTextSize" format="dimension" />
+        <attr name="titleState" format="enum" >
+            <enum name="show_when_active" value="0"/>
+            <enum name="always_show" value="1"/>
+            <enum name="always_hide" value="2"/>
+        </attr>
+        <attr name="titleInactiveTextSize" format="dimension" />
     </declare-styleable>
 </resources>

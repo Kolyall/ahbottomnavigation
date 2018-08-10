@@ -14,7 +14,7 @@
         android:id="@+id/bottom_navigation_item_icon"
         android:layout_width="@dimen/bottom_navigation_icon"
         android:layout_height="@dimen/bottom_navigation_icon"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
         android:layout_marginBottom="@dimen/bottom_navigation_margin_bottom"
         android:layout_marginTop="@dimen/bottom_navigation_margin_top_inactive"
         android:gravity="center"/>
