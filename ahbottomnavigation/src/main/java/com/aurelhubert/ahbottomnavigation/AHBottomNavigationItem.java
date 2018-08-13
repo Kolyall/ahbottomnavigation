@@ -67,13 +67,11 @@ public class AHBottomNavigationItem {
      *
      * @param titleRes    String resource
      * @param activeDrawableRes Drawable resource
-     * @param colorRes    Color resource
      */
-    public AHBottomNavigationItem(@StringRes int titleRes, @DrawableRes int activeDrawableRes, @DrawableRes int unactiveDrawableRes, @ColorRes int colorRes) {
+    public AHBottomNavigationItem(@StringRes int titleRes, @DrawableRes int activeDrawableRes, @DrawableRes int unactiveDrawableRes) {
         this.titleRes = titleRes;
         this.activeDrawableRes = activeDrawableRes;
         this.unactiveDrawableRes = unactiveDrawableRes;
-        this.colorRes = colorRes;
     }
 
     /**

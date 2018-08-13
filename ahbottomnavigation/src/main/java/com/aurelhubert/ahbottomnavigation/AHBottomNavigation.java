@@ -96,7 +96,7 @@ public class AHBottomNavigation extends FrameLayout {
 
     // Variables (Styles)
     private Typeface titleTypeface;
-    private int defaultBackgroundColor = Color.WHITE;
+    private int defaultBackgroundColor = Color.TRANSPARENT;
     private int defaultBackgroundResource = 0;
     private @ColorInt int itemActiveColor;
     private @ColorInt int itemInactiveColor;
@@ -409,7 +409,7 @@ public class AHBottomNavigation extends FrameLayout {
             TextView title = (TextView) view.findViewById(R.id.bottom_navigation_item_title);
             TextView notification = (TextView) view.findViewById(R.id.bottom_navigation_notification);
 
-            icon.setImageDrawable(getIconDrawable(item, current));
+            icon.setImageDrawable(getIconDrawable(item,current));
             title.setText(item.getTitle(context));
 
             if (titleTypeface != null) {
@@ -426,11 +426,11 @@ public class AHBottomNavigation extends FrameLayout {
                 }
                 icon.setSelected(true);
                 // Update margins (icon & notification)
-                if (view.getLayoutParams() instanceof MarginLayoutParams) {
-                    MarginLayoutParams p = (MarginLayoutParams) icon.getLayoutParams();
+                if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                    ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) icon.getLayoutParams();
                     p.setMargins(p.leftMargin, activePaddingTop, p.rightMargin, p.bottomMargin);
 
-                    MarginLayoutParams paramsNotification = (MarginLayoutParams)
+                    ViewGroup.MarginLayoutParams paramsNotification = (ViewGroup.MarginLayoutParams)
                             notification.getLayoutParams();
                     paramsNotification.setMargins(notificationActiveMarginLeft, paramsNotification.topMargin,
                             paramsNotification.rightMargin, paramsNotification.bottomMargin);
@@ -439,7 +439,7 @@ public class AHBottomNavigation extends FrameLayout {
                 }
             } else {
                 icon.setSelected(false);
-                MarginLayoutParams paramsNotification = (MarginLayoutParams)
+                ViewGroup.MarginLayoutParams paramsNotification = (ViewGroup.MarginLayoutParams)
                         notification.getLayoutParams();
                 paramsNotification.setMargins(notificationInactiveMarginLeft, paramsNotification.topMargin,
                         paramsNotification.rightMargin, paramsNotification.bottomMargin);
@@ -468,12 +468,12 @@ public class AHBottomNavigation extends FrameLayout {
                         updateItems(itemIndex, true);
                     }
                 });
-                icon.setImageDrawable(AHHelper.getTintDrawable(getIconDrawable(element, current),
-                        getIconColor(element, current), forceTint));
+                icon.setImageDrawable(AHHelper.getTintDrawable(getIconDrawable(element,current),
+                                                               getIconColor(element, current), forceTint));
                 title.setTextColor(current ? itemActiveColor : itemInactiveColor);
                 view.setSoundEffectsEnabled(soundEffectsEnabled);
             } else {
-                icon.setImageDrawable(AHHelper.getTintDrawable(getIconDrawable(element, false),
+                icon.setImageDrawable(AHHelper.getTintDrawable(getIconDrawable(element,false),
                         itemDisableColor, forceTint));
                 title.setTextColor(itemDisableColor);
             }
@@ -487,7 +487,7 @@ public class AHBottomNavigation extends FrameLayout {
     }
 
     private Drawable getIconDrawable(AHBottomNavigationItem element, boolean current) {
-        return current ? element.getActiveDrawable(context) : element.getUnactiveDrawable(context);
+        return current?element.getActiveDrawable(context):element.getUnactiveDrawable(context);
     }
 
     private Drawable getIconDrawable(AHBottomNavigationItem element) {
@@ -538,7 +538,7 @@ public class AHBottomNavigation extends FrameLayout {
             ImageView icon = (ImageView) view.findViewById(R.id.bottom_navigation_small_item_icon);
             TextView title = (TextView) view.findViewById(R.id.bottom_navigation_small_item_title);
             TextView notification = (TextView) view.findViewById(R.id.bottom_navigation_notification);
-            icon.setImageDrawable(getIconDrawable(item, current));
+            icon.setImageDrawable(getIconDrawable(item,current));
 
             if (titleState != TitleState.ALWAYS_HIDE) {
                 title.setText(item.getTitle(context));
@@ -560,11 +560,11 @@ public class AHBottomNavigation extends FrameLayout {
                 // Update margins (icon & notification)
 
                 if (titleState != TitleState.ALWAYS_HIDE) {
-                    if (view.getLayoutParams() instanceof MarginLayoutParams) {
-                        MarginLayoutParams p = (MarginLayoutParams) icon.getLayoutParams();
+                    if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                        ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) icon.getLayoutParams();
                         p.setMargins(p.leftMargin, activeMarginTop, p.rightMargin, p.bottomMargin);
 
-                        MarginLayoutParams paramsNotification = (MarginLayoutParams)
+                        ViewGroup.MarginLayoutParams paramsNotification = (ViewGroup.MarginLayoutParams)
                                 notification.getLayoutParams();
                         paramsNotification.setMargins(notificationActiveMarginLeft, notificationActiveMarginTop,
                                 paramsNotification.rightMargin, paramsNotification.bottomMargin);
@@ -574,7 +574,7 @@ public class AHBottomNavigation extends FrameLayout {
                 }
             } else {
                 icon.setSelected(false);
-                MarginLayoutParams paramsNotification = (MarginLayoutParams)
+                ViewGroup.MarginLayoutParams paramsNotification = (ViewGroup.MarginLayoutParams)
                         notification.getLayoutParams();
                 paramsNotification.setMargins(notificationInactiveMarginLeft, notificationInactiveMarginTop,
                         paramsNotification.rightMargin, paramsNotification.bottomMargin);
@@ -595,7 +595,7 @@ public class AHBottomNavigation extends FrameLayout {
 
             AHBottomNavigationItem element = items.get(i);
             if (itemsEnabledStates[i]) {
-                icon.setImageDrawable(AHHelper.getTintDrawable(getIconDrawable(element, current),
+                icon.setImageDrawable(AHHelper.getTintDrawable(getIconDrawable(element,current),
                         getIconColor(element, current), forceTint));
                 title.setTextColor(current ? itemActiveColor : itemInactiveColor);
                 title.setAlpha(current ? 1 : 0);
@@ -607,7 +607,7 @@ public class AHBottomNavigation extends FrameLayout {
                 });
                 view.setSoundEffectsEnabled(soundEffectsEnabled);
             } else {
-                icon.setImageDrawable(AHHelper.getTintDrawable(getIconDrawable(element, false),
+                icon.setImageDrawable(AHHelper.getTintDrawable(getIconDrawable(element,false),
                         itemDisableColor, forceTint));
                 title.setTextColor(itemDisableColor);
                 title.setAlpha(0);
@@ -689,7 +689,7 @@ public class AHBottomNavigation extends FrameLayout {
                 AHHelper.updateLeftMargin(notification, notificationInactiveMarginLeft, notificationActiveMarginLeft);
                 AHHelper.updateTextColor(title, itemInactiveColor, itemActiveColor);
                 AHHelper.updateTextSize(title, inactiveSize, activeSize);
-                AHHelper.updateDrawableColor(context, getIconDrawable(items.get(itemIndex), true), icon,
+                AHHelper.updateDrawableColor(context, getIconDrawable(items.get(itemIndex),true), icon,
                         getItemInactiveIconColor(items.get(itemIndex)), getItemActiveColor(items.get(itemIndex)), forceTint);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && colored) {
@@ -750,7 +750,7 @@ public class AHBottomNavigation extends FrameLayout {
                 AHHelper.updateLeftMargin(notification, notificationActiveMarginLeft, notificationInactiveMarginLeft);
                 AHHelper.updateTextColor(title, itemActiveColor, itemInactiveColor);
                 AHHelper.updateTextSize(title, activeSize, inactiveSize);
-                AHHelper.updateDrawableColor(context, getIconDrawable(items.get(currentItem), false), icon,
+                AHHelper.updateDrawableColor(context, getIconDrawable(items.get(currentItem),false), icon,
                         getItemActiveColor(items.get(currentItem)), getItemInactiveIconColor(items.get(currentItem)), forceTint);
             }
         }
@@ -773,7 +773,7 @@ public class AHBottomNavigation extends FrameLayout {
     }
 
     private int getItemInactiveIconColor(AHBottomNavigationItem item) {
-        return item.getInactiveIconColorRes() != 0 ? item.getInactiveIconColor(context) : itemInactiveColor;
+        return item.getInactiveIconColorRes()!=0?item.getInactiveIconColor(context):itemInactiveColor;
     }
 
     /**
@@ -824,7 +824,7 @@ public class AHBottomNavigation extends FrameLayout {
                 }
 
                 AHHelper.updateAlpha(title, 0, 1);
-                AHHelper.updateDrawableColor(context, getIconDrawable(items.get(itemIndex), true), icon,
+                AHHelper.updateDrawableColor(context, getIconDrawable(items.get(itemIndex),true), icon,
                         getItemInactiveIconColor(items.get(itemIndex)), getItemActiveColor(items.get(itemIndex)), forceTint);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && colored) {
@@ -891,7 +891,7 @@ public class AHBottomNavigation extends FrameLayout {
                 }
 
                 AHHelper.updateAlpha(title, 1, 0);
-                AHHelper.updateDrawableColor(context, getIconDrawable(items.get(currentItem), false), icon,
+                AHHelper.updateDrawableColor(context, getIconDrawable(items.get(currentItem),false), icon,
                         getItemActiveColor(items.get(currentItem)), getItemInactiveIconColor(items.get(currentItem)), forceTint);
             }
         }
@@ -1085,14 +1085,13 @@ public class AHBottomNavigation extends FrameLayout {
         this.defaultBackgroundColor = defaultBackgroundColor;
         createItems();
     }
-
     /**
      * Set the bottom navigation background color
      *
      * @param defaultBackgroundColorRes The bottom navigation background color
      */
     public void setDefaultBackgroundColorRes(@ColorRes int defaultBackgroundColorRes) {
-        this.defaultBackgroundColor = ContextCompat.getColor(context, defaultBackgroundColorRes);
+        this.defaultBackgroundColor = ContextCompat.getColor(context,defaultBackgroundColorRes);
         createItems();
     }
 
@@ -1470,6 +1469,19 @@ public class AHBottomNavigation extends FrameLayout {
             throw new IndexOutOfBoundsException(String.format(Locale.US, EXCEPTION_INDEX_OUT_OF_BOUNDS, itemPosition, items.size()));
         }
         notifications.set(itemPosition, AHNotification.justText(title));
+        updateNotifications(false, itemPosition);
+    }
+
+    /**
+     * Remove notification
+     *
+     * @param itemPosition int
+     */
+    public void removeNotification(int itemPosition) {
+        if (itemPosition < 0 || itemPosition > items.size() - 1) {
+            throw new IndexOutOfBoundsException(String.format(Locale.US, EXCEPTION_INDEX_OUT_OF_BOUNDS, itemPosition, items.size()));
+        }
+        notifications.set(itemPosition, new AHNotification());
         updateNotifications(false, itemPosition);
     }
 
