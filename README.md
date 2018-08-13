@@ -2,6 +2,8 @@
 # AHBottomNavigation
 Library to implement the Bottom Navigation component from Material Design guidelines (minSdkVersion=14).
 
+<a href='https://bintray.com/nickunuchek/maven/ah-bottom-navigation/_latestVersion'><img src='https://api.bintray.com/packages/nickunuchek/maven/ah-bottom-navigation/images/download.svg'></a>
+
 ## Demo
 <img src="https://raw.githubusercontent.com/aurelhubert/ahbottomnavigation/master/demo1.gif" width="208" height="368" /> <img src="https://raw.githubusercontent.com/aurelhubert/ahbottomnavigation/master/demo2.gif" width="208" height="368" /> <img src="https://raw.githubusercontent.com/aurelhubert/ahbottomnavigation/master/demo3.gif" width="208" height="368" /> <img src="https://raw.githubusercontent.com/aurelhubert/ahbottomnavigation/master/demo4.gif" width="208" height="368" />
 
@@ -28,7 +30,7 @@ If you use drawable selector and target API < 21, don't forget to add this:
 ### Gradle
 ```groovy
 dependencies {
-    compile 'com.aurelhubert:ahbottomnavigation:2.1.0'
+    compile 'com.github.kolyall:ahbottomnavigation:{latestVersion}'
 }
 ```
 ### XML
