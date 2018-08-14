@@ -15,6 +15,7 @@ ext {
 
     publishedGroupId = 'com.github.kolyall'//only this
     artifact = 'ahbottomnavigation'//should be the same as module name
+    artifactLocal = 'ahbottomnavigation'//should be the same as module name
     libraryVersion = appVersionName
 
     libraryName = 'AHBottomNavigation'
